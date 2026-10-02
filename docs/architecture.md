@@ -6,7 +6,7 @@ Explore how a personal AI assistant can run on a home PC, keep useful continuity
 
 ## Current implementation
 
-The repository currently contains a starter script that sends one request to an OpenAI-compatible endpoint and records limited run metadata. It does not yet implement a chat client, persistent agent memory, a tool runner, or a long-running assistant. No hardware or model results have been published.
+The repository contains a starter measurement script and a bounded command-line assistant. The assistant can list and read UTF-8 text files inside one explicitly selected workspace, propose a complete file replacement, show a diff, require interactive approval, apply the write atomically, and verify the result. It has no shell tool, external communication tool, background scheduler, or persistent project memory. No hardware or model results have been published.
 
 ## Proposed data path
 

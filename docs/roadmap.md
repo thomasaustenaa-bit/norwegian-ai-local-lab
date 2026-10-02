@@ -20,6 +20,8 @@ This provisional roadmap draws on the project’s NotebookLM notes and architect
 
 **Exit evidence:** reproducible records for successful, failed, and interrupted example tasks, with no unrestricted shell execution.
 
+**Current progress:** the repository now contains an unvalidated command-line prototype with workspace-confined file listing and reading plus approval-gated, atomic full-file replacement. It still needs a reproduced local-model run, failure records, and evaluation fixtures before this stage is complete.
+
 ## Stage 3 — Add inspectable continuity
 
 - Store the project backlog and a small set of user-approved facts in plain files.

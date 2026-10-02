@@ -8,7 +8,7 @@ Use this as a starting point only when a provider has a relevant application or 
 
 Hello,
 
-We maintain Norwegian AI Local Lab, an independent open-source project exploring personal AI assistants on home PCs. We are at an early prototype stage: the repository has a local measurement harness and a proposed design for user-controlled memory and approval-gated tools, but it does not yet implement the assistant or publish benchmark results.
+We maintain Norwegian AI Local Lab, an independent open-source project exploring personal AI assistants on home PCs. We are at an early prototype stage: the repository has a local measurement harness, a proposed design for user-controlled memory, and an unvalidated workspace-confined assistant with approval-gated file writes. It does not yet implement persistent project memory or publish benchmark results.
 
 We would like to ask whether **[provider/program]** offers a legitimate, time-limited evaluation or developer-access program suitable for a two-contributor open-source project. Our intended use is limited to **[specific workflow]** over **[duration]**. We would use only synthetic, self-authored, or appropriately licensed examples, and would publish methods and limitations without exposing private data or confidential service details.
 

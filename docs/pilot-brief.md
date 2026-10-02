@@ -42,4 +42,4 @@ A time-limited team workspace could support collaborative review of the project 
 
 ## Current project state
 
-The repository currently has a starter script for one OpenAI-compatible local endpoint and a proposed assistant architecture. It has no working agent prototype, published benchmark results, validated production deployment, customer case study, or third-party endorsement. The next milestone is verifying the hardware and reproducing one local setup, followed by a small approval-gated file task.
+The repository currently has a starter measurement script, a proposed assistant architecture, and an unvalidated bounded workspace assistant. The assistant implements listing, reading, approval-gated full-file replacement, atomic writing, and byte verification within one selected directory. It has not been validated against a local model and is not a production deployment. The next milestone is reproducing one local model setup and recording a small approval-gated file task, including failures and limitations.

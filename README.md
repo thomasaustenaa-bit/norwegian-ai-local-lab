@@ -2,7 +2,7 @@
 
 An open project exploring a practical personal AI assistant for home PCs: local inference, user-controlled memory, bounded tools, and reproducible evaluation. Language examples will include Norwegian, English, and Somali, with quality reviewed by fluent speakers rather than assumed.
 
-**Project status: early prototype.** The repository contains a reference architecture, a one-request local benchmark harness, and a proposed pilot protocol. It does not yet implement the assistant, persistent agent memory, or tool execution. No model or hardware has been benchmarked yet. All pilot targets below are plans, not results.
+**Project status: early prototype.** The repository contains a reference architecture, a one-request local benchmark harness, and a first bounded workspace assistant. The assistant can list and read text files in one selected directory and propose a file replacement, but an operator must review its diff and type `APPLY` before the change is written. It has no shell or background execution. Persistent project memory and model/runtime validation are not implemented, and no model or hardware has been benchmarked yet.
 
 ## Why this project
 
@@ -35,6 +35,19 @@ flowchart LR
 ```
 
 See [`docs/architecture.md`](docs/architecture.md) for the proposed assistant design, [`docs/evaluation.md`](docs/evaluation.md) for the measurement plan, and [`docs/roadmap.md`](docs/roadmap.md) for implementation stages.
+
+## Try the bounded assistant
+
+Start an OpenAI-compatible local model server, create a disposable workspace, and run:
+
+```bash
+python tools/local_workspace_assistant.py \
+  --workspace ./scratch-demo \
+  --model your-local-model \
+  "Read the project note and propose a clearer title."
+```
+
+The prototype limits file access to the selected workspace, has no shell tool, and requires interactive approval before a write. Read the full behavior and current limitations in [`docs/local-assistant.md`](docs/local-assistant.md) before using it with real files.
 
 ## Proposed pilot
 
