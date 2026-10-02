@@ -34,9 +34,9 @@ flowchart LR
   J --> E[Evaluation harness]
 ```
 
-See [`docs/architecture.md`](docs/architecture.md) for the proposed assistant design, [`docs/evaluation.md`](docs/evaluation.md) for the measurement plan, and [`docs/roadmap.md`](docs/roadmap.md) for implementation stages.
+See [`docs/architecture.md`](docs/architecture.md) for the proposed assistant design, [`docs/evaluation.md`](docs/evaluation.md) for the measurement plan, [`docs/first-local-run.md`](docs/first-local-run.md) for the prepared first-run procedure, and [`docs/roadmap.md`](docs/roadmap.md) for implementation stages.
 
-The first reproducible environment snapshot is in [`docs/runtime-profile-thomas-pc.md`](docs/runtime-profile-thomas-pc.md). It records the verified Windows, CPU, RAM, GPU, Ollama, and Hermes setup while keeping credentials and personal configuration out of the repository.
+The first verified environment inventory is in [`docs/runtime-profile-thomas-pc.md`](docs/runtime-profile-thomas-pc.md). It records the Windows, CPU, RAM, GPU, Ollama, and Hermes setup while keeping credentials and personal configuration out of the repository, and includes the read-only capture commands used to assemble the snapshot.
 
 ## Try the bounded assistant
 

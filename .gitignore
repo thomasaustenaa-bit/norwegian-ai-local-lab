@@ -1,5 +1,6 @@
 __pycache__/
 *.py[cod]
 results.jsonl
+.local-results/
 .venv/
 .local-assistant/

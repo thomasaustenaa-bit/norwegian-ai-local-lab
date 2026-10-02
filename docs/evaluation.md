@@ -2,7 +2,7 @@
 
 ## Status
 
-No benchmark results have been collected for this repository yet. The assistant architecture is proposed, not implemented. Hardware profiles in the website and docs are planning categories only.
+No benchmark results have been collected for this repository yet. The bounded workspace assistant is implemented but has not been run against a local model. The first development machine and its installed runtimes are inventoried in [`runtime-profile-thomas-pc.md`](runtime-profile-thomas-pc.md); the remaining architecture stages are proposed.
 
 ## Minimum record
 
@@ -12,11 +12,13 @@ For each run, capture:
 - inference runtime and version;
 - operating system, CPU, GPU, and available memory;
 - context and generation settings;
-- language and prompt-set identifier (not the private prompt text);
+- language, prompt identifier, and prompt-set version (not the private prompt text or a reversible fingerprint of it);
 - latency and completion-token usage when reported by the server;
 - warm-up policy, repetition count, and date.
 
 For agent tasks, also record the task-set version, allowed workspace, tools enabled, approval decisions, whether the task was completed, how the result was verified, and any unsupported claims or recovery steps. Do not collect private file contents or raw prompts in the public run record.
+
+The measurement script writes raw metadata to the ignored `.local-results/` directory by default. Review any record before publishing it. A public report should use a random run ID plus a documented prompt-set identifier and version; it should not publish prompt hashes that make a short or known prompt easier to identify.
 
 ## Comparing runs
 
@@ -28,3 +30,5 @@ For agent tasks, also record the task-set version, allowed workspace, tools enab
 6. For multi-step tasks, compare task completion, permission behavior, resumption, and failure recovery separately from generation speed.
 
 Do not compare results from different prompt sets or hardware conditions as though they were equivalent. A local latency number is not a quality score or a general recommendation.
+
+The prepared sequence for the first recorded run is in [`first-local-run.md`](first-local-run.md).
