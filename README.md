@@ -1,4 +1,4 @@
-# Somalia AI Local Lab
+# Norwegian AI Local Lab
 
 An open reference architecture for running and measuring AI on everyday PCs, with Somali and English as concrete language examples.
 
@@ -68,7 +68,7 @@ Please read [`CONTRIBUTING.md`](CONTRIBUTING.md) before opening a pull request. 
 
 ## Project site
 
-[Somalia AI Local Lab](https://somalia-ai-local-lab.tussienorway.chatgpt.site) · independent project; not affiliated with or endorsed by OpenAI, Google, or model providers.
+Norwegian AI Local Lab is an independent project; it is not affiliated with or endorsed by OpenAI, Google, or model providers.
 
 ## License
 
