@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#101c29">
-  <meta name="description" content="An open reference architecture for running and evaluating local AI on everyday PCs, with Somali and English as language examples.">
+  <meta name="description" content="An open project exploring local AI assistants for home PCs, with user-controlled memory, bounded tools, and reproducible evaluation.">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23101c29'/%3E%3Cpath d='M15 43 32 13l17 30H15Z' fill='none' stroke='%23c8f169' stroke-width='5' stroke-linejoin='round'/%3E%3Ccircle cx='32' cy='37' r='5' fill='%23f5efe2'/%3E%3C/svg%3E">
   <title>Norwegian AI Local Lab — Local AI, made practical</title>
   <style>
@@ -23,7 +23,7 @@
       <div class="hero-inner" id="top">
         <div class="eyebrow">Open reference project · Local-first AI</div>
         <h1>Useful AI.<br>On your own machine.</h1>
-        <p>A practical architecture for running and evaluating language models on everyday PCs—with Somali and English as real-world language examples.</p>
+        <p>A practical design for personal AI on home PCs: local models, inspectable memory, and tools that stay within clear permission boundaries.</p>
         <div class="actions"><a class="button primary" href="#architecture">Explore the architecture <span aria-hidden="true">↓</span></a><a class="button secondary" href="https://github.com/thomasaustenaa-bit/norwegian-ai-local-lab">View the project on GitHub ↗</a></div>
         <div class="hero-meta"><span>Runs on local hardware</span><span>Reproducible measurements</span><span>No benchmark claims without runs</span></div>
       </div>
@@ -35,9 +35,9 @@
         <div class="section-head"><div><div class="kicker">01 · System design</div></div><div><h2>A small, clear path from prompt to answer.</h2><p class="section-intro">Keep the model and private inputs on the PC. Make each part swappable so a modest machine can start small and grow with better hardware.</p></div></div>
         <div class="architecture"><div class="arch-grid">
           <article class="arch-node"><span class="node-num">01 / INPUT</span><h3>Local interface</h3><p>A lightweight chat or task client sends a request to the machine.</p></article>
-          <article class="arch-node"><span class="node-num">02 / ROUTING</span><h3>Model gateway</h3><p>One local endpoint selects a model and applies request limits.</p></article>
-          <article class="arch-node"><span class="node-num">03 / INFERENCE</span><h3>PC runtime</h3><p>A replaceable inference engine serves a quantized model on CPU or GPU.</p></article>
-          <article class="arch-node"><span class="node-num">04 / EVIDENCE</span><h3>Evaluation log</h3><p>Latency, throughput, hardware, and model details become comparable records.</p></article>
+          <article class="arch-node"><span class="node-num">02 / PLAN</span><h3>Approval gate</h3><p>Review the plan and approve changes before a tool acts.</p></article>
+          <article class="arch-node"><span class="node-num">03 / INFERENCE</span><h3>Local runtime</h3><p>A replaceable model runs on the PC and proposes bounded tool calls.</p></article>
+          <article class="arch-node"><span class="node-num">04 / MEMORY</span><h3>Journal &amp; checks</h3><p>Keep user-controlled project state and verify each completed action.</p></article>
         </div><div class="local-note"><strong>Local by default:</strong> no cloud API is needed for the reference path. Model downloads are a separate, explicit step; prompts and measurement records remain on the device unless the operator exports them.</div></div>
       </div>
     </section>
@@ -47,7 +47,7 @@
         <div class="principle-grid">
           <article class="principle"><span class="num">01</span><h3>Measure, then compare</h3><p>Record the model, quantization, runtime, hardware, prompt set, and run conditions alongside every result.</p></article>
           <article class="principle"><span class="num">02</span><h3>Be honest about trade-offs</h3><p>Quality, memory, speed, heat, and energy use all matter. Publish limits with the headline metric.</p></article>
-          <article class="principle"><span class="num">03</span><h3>Make language coverage visible</h3><p>Use Somali and English examples, and document where prompts or evaluation methods need fluent review.</p></article>
+          <article class="principle"><span class="num">03</span><h3>Make language coverage visible</h3><p>Use Norwegian, English, and Somali examples, and document where prompts or evaluation methods need fluent review.</p></article>
         </div>
       </div>
     </section>
@@ -59,7 +59,7 @@
           <article class="profile"><div class="profile-tag">Profile B · Balanced</div><h3>Creator desktop</h3><p>More memory, optional consumer GPU</p><div class="spec">Target: mid-sized quantized models<br>Measure: CPU/GPU split and tokens/sec</div></article>
           <article class="profile"><div class="profile-tag">Profile C · Workstation</div><h3>Local lab</h3><p>High-memory GPU or multi-device setup</p><div class="spec">Target: larger models and longer context<br>Measure: concurrency, power, and quality</div></article>
         </div>
-        <div class="status-band"><div><strong>Benchmark status: not measured yet</strong><br><span>The repository includes a starter harness. Results will be published only after reproducible runs with hardware and model details.</span></div><span class="status-pill">REFERENCE BLUEPRINT</span></div>
+        <div class="status-band"><div><strong>Prototype status: design in progress</strong><br><span>The repository has a starter measurement harness. It does not yet implement the proposed assistant or publish model and hardware results.</span></div><span class="status-pill">EARLY PROTOTYPE</span></div>
       </div>
     </section>
     <section class="section contribute" id="contribute">

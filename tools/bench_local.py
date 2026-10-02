@@ -40,6 +40,26 @@ def is_loopback(host):
         return False
 
 
+class LoopbackRedirectHandler(urllib.request.HTTPRedirectHandler):
+    """Prevent a local endpoint from redirecting the prompt to a remote host."""
+
+    def __init__(self, allow_remote):
+        super().__init__()
+        self.allow_remote = allow_remote
+
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        redirect_host = urllib.parse.urlparse(newurl).hostname
+        if not self.allow_remote and not is_loopback(redirect_host or ""):
+            raise urllib.error.HTTPError(
+                newurl,
+                code,
+                "Remote redirect blocked; pass --allow-remote to permit sending prompts off-device",
+                headers,
+                fp,
+            )
+        return super().redirect_request(req, fp, code, msg, headers, newurl)
+
+
 def main():
     args = parse_args()
     parsed = urllib.parse.urlparse(args.base_url)
@@ -74,7 +94,8 @@ def main():
 
     started = time.perf_counter()
     try:
-        with urllib.request.urlopen(request, timeout=300) as response:
+        opener = urllib.request.build_opener(LoopbackRedirectHandler(args.allow_remote))
+        with opener.open(request, timeout=300) as response:
             payload = json.loads(response.read().decode("utf-8"))
             status = response.status
     except urllib.error.HTTPError as exc:

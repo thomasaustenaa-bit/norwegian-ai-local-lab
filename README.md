@@ -1,32 +1,46 @@
 # Norwegian AI Local Lab
 
-An open reference architecture for running and measuring AI on everyday PCs, with Somali and English as concrete language examples.
+An open project exploring a practical personal AI assistant for home PCs: local inference, user-controlled memory, bounded tools, and reproducible evaluation. Language examples will include Norwegian, English, and Somali, with quality reviewed by fluent speakers rather than assumed.
 
-**Project status: early blueprint.** The repository contains architecture notes and a small benchmark harness for an OpenAI-compatible local inference endpoint. No model or hardware has been benchmarked yet, so this project makes no speed or quality claims.
+**Project status: early prototype.** The repository contains a reference architecture, a one-request local benchmark harness, and a proposed pilot protocol. It does not yet implement the assistant, persistent agent memory, or tool execution. No model or hardware has been benchmarked yet. All pilot targets below are plans, not results.
 
 ## Why this project
 
-Local inference can make AI more available when cloud connectivity, cost, or data location matters. The useful question is not simply “Which model is fastest?” It is: which model, runtime, and settings fit a particular PC and task, and what quality, latency, memory, and energy trade-offs come with that choice?
+Local inference can make an assistant more available when cloud connectivity, cost, or data location matters. The useful question is not simply “Which model is fastest?” It is: can a particular PC run a useful assistant with dependable memory and carefully bounded tools, and what quality, latency, memory, and energy trade-offs come with that choice?
 
-The initial scope is intentionally small:
+The initial scope is deliberately testable:
 
-- a clear, replaceable local-first architecture;
+- a clear, replaceable local-first assistant architecture with explicit permission gates;
 - a standard-library Python measurement script for a local OpenAI-compatible chat endpoint;
 - result records that capture model and machine context without saving prompt text or model output;
-- Somali and English examples, with language quality treated as something to evaluate with fluent reviewers rather than assume.
+- Norwegian, English, and Somali examples, with language quality treated as something to evaluate with fluent reviewers rather than assume;
+- a staged plan for adding inspectable memory and a restricted tool runner.
+
+The project is not a company case study and does not claim customers, institutional backing, security certifications, or measured results. Any access request will describe the project and its contributors accurately.
 
 ## Architecture
 
+The diagram below is the **proposed design**, not a description of a completed assistant.
+
 ```mermaid
 flowchart LR
-  U[Local user interface] --> G[Local model gateway]
-  G --> R[Inference runtime on PC]
-  R --> M[Local model files]
-  G --> E[Evaluation harness]
-  E --> J[Local JSONL result record]
+  U[User task] --> P[Plan and approval gate]
+  P --> R[Local model runtime]
+  R --> T[Restricted tool runner]
+  T --> V[Result verification]
+  V --> U
+  R <--> M[User-controlled memory]
+  V --> J[Local audit journal]
+  J --> E[Evaluation harness]
 ```
 
-See [`docs/architecture.md`](docs/architecture.md) for component boundaries and [`docs/evaluation.md`](docs/evaluation.md) for the measurement plan.
+See [`docs/architecture.md`](docs/architecture.md) for the proposed assistant design, [`docs/evaluation.md`](docs/evaluation.md) for the measurement plan, and [`docs/roadmap.md`](docs/roadmap.md) for implementation stages.
+
+## Proposed pilot
+
+The pilot brief stages the work: verify the machines, reproduce one local model setup, build an approval-gated workspace task, and then evaluate it with a small, licensed or self-authored task set. It defines what would count as evidence and what remains only a proposal. See [`docs/pilot-brief.md`](docs/pilot-brief.md).
+
+If requesting provider access, use the factual template in [`docs/access-request.md`](docs/access-request.md). A project or public repository does not by itself qualify its maintainers for a free subscription, and the request must not imply otherwise.
 
 ## Try the measurement harness
 
@@ -36,7 +50,7 @@ Start a local inference server that exposes an OpenAI-compatible `/v1/chat/compl
 python tools/bench_local.py --base-url http://127.0.0.1:8080/v1 --model local-model
 ```
 
-The starter prompt is a harmless English smoke prompt. Provide your own prompt with `--prompt-text` and label it with `--language` and `--prompt-id`. The script only permits loopback addresses by default, sends one non-streaming request, and records metadata and latency to a JSONL file; it does not save the prompt or generated answer. Add `--allow-remote` only when you intentionally want to send the prompt to a non-local server.
+The starter prompt is a harmless English smoke prompt. Provide your own prompt with `--prompt-text` and label it with `--language` and `--prompt-id`. The script permits loopback addresses by default, blocks redirects to non-loopback hosts unless `--allow-remote` is set, sends one non-streaming request, and records metadata and latency to a JSONL file; it does not save the prompt or generated answer. Add `--allow-remote` only when you intentionally want to send the prompt to a non-local server.
 
 ```bash
 python tools/bench_local.py \
@@ -55,7 +69,7 @@ Good first contributions include:
 
 - setup notes for a specific operating system or inference runtime;
 - hardware profiles with exact specifications and reproducible run records;
-- carefully sourced, licensed Somali or English evaluation prompts;
+- carefully sourced, licensed Norwegian, Somali, or English evaluation prompts;
 - tests and adapters for other local OpenAI-compatible servers;
 - fluent review of language examples and evaluation criteria.
 
@@ -68,7 +82,7 @@ Please read [`CONTRIBUTING.md`](CONTRIBUTING.md) before opening a pull request. 
 
 ## Project site
 
-Norwegian AI Local Lab is an independent project; it is not affiliated with or endorsed by OpenAI, Google, or model providers.
+Norwegian AI Local Lab is an independent project; it is not affiliated with or endorsed by OpenAI, Google, or model providers. ChatGPT subscriptions and API access are separate products: this local endpoint harness does not use a ChatGPT subscription as an API credential.
 
 ## License
 
