@@ -16,7 +16,7 @@ The prototype has no shell tool, package installer, browser, credential access, 
 
 ## Before running
 
-Start an OpenAI-compatible local model server and note its model identifier. The default endpoint is `http://127.0.0.1:11434/v1`, which matches a common local Ollama configuration, but the project does not yet recommend a particular model or claim that every OpenAI-compatible server follows the same behavior.
+Start an OpenAI-compatible local model server and note its model identifier. The default endpoint is `http://127.0.0.1:11434/v1`, which matches the installed Ollama runtime on the first development PC, but the project does not yet recommend a particular model or claim that every OpenAI-compatible server follows the same behavior. See [`runtime-profile-thomas-pc.md`](runtime-profile-thomas-pc.md) for the inventory and its limits.
 
 Use a disposable test directory for the first run. Do not point an unvalidated model at an important workspace.
 

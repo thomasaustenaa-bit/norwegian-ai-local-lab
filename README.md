@@ -2,7 +2,7 @@
 
 An open project exploring a practical personal AI assistant for home PCs: local inference, user-controlled memory, bounded tools, and reproducible evaluation. Language examples will include Norwegian, English, and Somali, with quality reviewed by fluent speakers rather than assumed.
 
-**Project status: early prototype.** The repository contains a reference architecture, a one-request local benchmark harness, and a first bounded workspace assistant. The assistant can list and read text files in one selected directory and propose a file replacement, but an operator must review its diff and type `APPLY` before the change is written. It has no shell or background execution. Persistent project memory and model/runtime validation are not implemented, and no model or hardware has been benchmarked yet.
+**Project status: early prototype.** The repository contains a reference architecture, a one-request local benchmark harness, and a first bounded workspace assistant. The assistant can list and read text files in one selected directory and propose a file replacement, but an operator must review its diff and type `APPLY` before the change is written. It has no shell or background execution. The first Windows development machine and its installed runtimes are now inventoried, but persistent project memory is not implemented and no model-run or benchmark results have been recorded yet.
 
 ## Why this project
 
@@ -35,6 +35,8 @@ flowchart LR
 ```
 
 See [`docs/architecture.md`](docs/architecture.md) for the proposed assistant design, [`docs/evaluation.md`](docs/evaluation.md) for the measurement plan, and [`docs/roadmap.md`](docs/roadmap.md) for implementation stages.
+
+The first reproducible environment snapshot is in [`docs/runtime-profile-thomas-pc.md`](docs/runtime-profile-thomas-pc.md). It records the verified Windows, CPU, RAM, GPU, Ollama, and Hermes setup while keeping credentials and personal configuration out of the repository.
 
 ## Try the bounded assistant
 

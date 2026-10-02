@@ -6,10 +6,12 @@ This provisional roadmap draws on the project’s NotebookLM notes and architect
 
 - Publish the assistant architecture and permission boundaries.
 - Keep proposed work separate from implemented features and measured results.
-- Confirm the actual test machine and available memory before naming it in a public hardware profile.
+- Confirm the actual test machine and available memory before naming it in a public hardware profile. **Completed for the first development PC:** see [`runtime-profile-thomas-pc.md`](runtime-profile-thomas-pc.md).
 - Document one supported local model runtime and one model only after the setup is reproduced.
 
 **Exit evidence:** a reviewed architecture, a verified machine inventory, and an installation note reproduced by a second person.
+
+**Current progress:** the architecture and first machine inventory are published. The clean-install reproduction by a second person is still pending, so Stage 1 is not complete.
 
 ## Stage 2 — Build a bounded local prototype
 
@@ -20,7 +22,7 @@ This provisional roadmap draws on the project’s NotebookLM notes and architect
 
 **Exit evidence:** reproducible records for successful, failed, and interrupted example tasks, with no unrestricted shell execution.
 
-**Current progress:** the repository now contains an unvalidated command-line prototype with workspace-confined file listing and reading plus approval-gated, atomic full-file replacement. It still needs a reproduced local-model run, failure records, and evaluation fixtures before this stage is complete.
+**Current progress:** the repository now contains an unvalidated command-line prototype with workspace-confined file listing and reading plus approval-gated, atomic full-file replacement. Ollama is installed and already running on the first machine, and five stored models have been inventoried. No model generation was run during the inventory. The stage still needs a reproduced local-model run, failure records, and evaluation fixtures before it is complete.
 
 ## Stage 3 — Add inspectable continuity
 
