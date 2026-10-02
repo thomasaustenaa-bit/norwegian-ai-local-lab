@@ -97,6 +97,8 @@ Please read [`CONTRIBUTING.md`](CONTRIBUTING.md) before opening a pull request. 
 
 ## Project site
 
+Project page: [thomasaustenaa-bit.github.io/norwegian-ai-local-lab](https://thomasaustenaa-bit.github.io/norwegian-ai-local-lab/)
+
 Norwegian AI Local Lab is an independent project; it is not affiliated with or endorsed by OpenAI, Google, or model providers. ChatGPT subscriptions and API access are separate products: this local endpoint harness does not use a ChatGPT subscription as an API credential.
 
 ## License
